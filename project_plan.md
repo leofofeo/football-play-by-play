@@ -2,64 +2,45 @@
 
 ## Objective
 
-A short statement about the objective of your project.
+This project aims to take existing play-by-play nfl data and create an ELT pipeline that automatically ingests existing and new csv and parquet files and transforms the raw data into modeled data that can be consumed for analytics via a tool like Preset and more easily accessed for data analysis via SQL and Python. 
 
-Example:
-
-> The objective of our project is to provide analytical datasets from our Orders API and Customers database.
 
 ## Consumers
 
-What users would find your data useful? How do they want to access the data?
+Anyone who wants more direct access to historical game and season data in the NFL as either a football or fantasy football fan will find this data useful. The nature of the data is such that with the right transformations, it'll be possible to answer questions that address not just specific game and season(s)-long stats for particular players, but league-wide trends as a whole.
 
-Example:
-
-> The users of our datasets are Data Analysts and the Production team in the business.
 
 ## Questions
 
-What questions are you trying to answer with your data? How will your data support your users?
+Given that this project aims to source play-by-play data dating back to 1999, many kinds of questions can be answered about the evolution and history of the game of football over the past 25 years, including many fantasy-relevant statistics. 
 
-Example:
-
-> - How many orders are there for each customer?
-> - What countries and regions have the most orders?
-> - What customers have their orders delayed?
-> - How many delayed orders are there for each country and region?
-> - How many orders do we have for each day?
-> - How many delayed orders do we have for each day?
+Examples include:
+- Who was/were the rushing/passing yards leader(s) for any given season?
+- How has the number of average rushing yards per game by team changed over the past 10 years?
+- How does QB EPA change in relation to win probability in the 4th quarter?
+- What percentage of the time do teams with different types of 1-score leads (2-8 points) at halftime win the game outright?
+ 
 
 ## Source datasets
 
-What datasets are you sourcing from? How frequently are the source datasets updating?
-
-Example:
-
 | Source name | Source type | Source documentation |
 | - | - | - |
-| Customers database | PostgreSQL database | - |
-| Orders API | REST API | - |
+| SportsDataIO | JSON API | - |
+| NFL Play-By-Play Github Repo | CSV/Parquey | - |
+
 
 ## Solution architecture
+This project will leverage AWS, Dagster Cloud, dbt, and Snowflake. The raw ingestion data will be consumed via an S3 lambda, running every week to check for new data
 
-How are we going to get data flowing from source to serving? What components and services will we combine to implement the solution? How do we automate the entire running of the solution?
+After being ingested into Snowflake, the data will be transformed via dbt, orchestrated through Dagster Cloud.
 
-- What data extraction patterns are you going to be using?
-- What data loading patterns are you going to be using?
-- What data transformation patterns are you going to be performing?
+Finally, the data will be made available for consumption through Preset.
 
-We recommend using a diagramming tool like [draw.io](https://draw.io/) to create your architecture diagram.
+Github will be used for hosting all custom code.
 
-Here is a sample solution architecture diagram:
+![Architecture Diagram](images/architecture.png)
 
-![images/sample-solution-architecture-diagram.png](images/sample-solution-architecture-diagram.png)
 
 ## Breakdown of tasks
 
-How is your project broken down? Who is doing what?
-
-We recommend using a free Task board such as [Trello](https://trello.com/). This makes it easy to assign and track tasks to each individual.
-
-Example:
-
-![images/kanban-task-board.png](images/kanban-task-board.png)
+![Project task board.png](images/project-task-board.png)
