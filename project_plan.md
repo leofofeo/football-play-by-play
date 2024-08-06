@@ -2,12 +2,15 @@
 
 ## Objective
 
-This project aims to take existing play-by-play nfl data and create an ELT pipeline that automatically ingests existing and new csv and parquet files and transforms the raw data into modeled data that can be consumed for analytics via a tool like Preset and more easily accessed for data analysis via SQL and Python. 
+This project aims to:
+- take existing play-by-play nfl data and create an ELT pipeline that automatically ingests existing and new csv files
+- uses an NFL API to create dimensional tables about teams and players
+- transforms the raw data into modeled data that can be consumed for analytics via a tool like Preset, more easily accessed for data analysis via SQL and Python
 
 
 ## Consumers
 
-Anyone who wants more direct access to historical game and season data in the NFL as either a football or fantasy football fan will find this data useful. The nature of the data is such that with the right transformations, it'll be possible to answer questions that address not just specific game and season(s)-long stats for particular players, but league-wide trends as a whole.
+Anyone who wants more direct access to historical game and season data in the NFL as either a football or fantasy football fan will find this data useful. The nature of the data is such that with the right transformations, it'll be possible to answer questions that address not just specific game and season-long stats for particular players, but league-wide trends as a whole.
 
 
 ## Questions
@@ -26,11 +29,11 @@ Examples include:
 | Source name | Source type | Source documentation |
 | - | - | - |
 | SportsDataIO | JSON API | - |
-| NFL Play-By-Play Github Repo | CSV/Parquey | - |
+| NFL Play-By-Play Github Repo | CSV/parquet | - |
 
 
 ## Solution architecture
-This project will leverage AWS, Dagster Cloud, dbt, and Snowflake. The raw ingestion data will be consumed via an S3 lambda, running every week to check for new data
+This project will leverage AWS, Dagster Cloud, dbt, Snowflake, and Preset. The raw ingestion data will be consumed via an S3 lambda, running every week to check for new data.
 
 After being ingested into Snowflake, the data will be transformed via dbt, orchestrated through Dagster Cloud.
 
