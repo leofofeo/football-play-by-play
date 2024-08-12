@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: football_play_by_play
+    database: football_play_by_play
+    schema: raw
+    tables:
+      - name: PLAY-BY-PLAY-CSV-STREAM
+
+models:
+  - name: src_historical_play_by_play
+    description: "A table containing historical play-by-play data dating back to 1999"

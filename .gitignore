@@ -1,2 +1,7 @@
 .env
 .example.env
+
+*.csv
+data
+.DS_Store
+logs   
