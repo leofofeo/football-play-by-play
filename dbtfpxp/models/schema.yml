@@ -10,3 +10,6 @@ sources:
 models:
   - name: src_historical_play_by_play
     description: "A table containing historical play-by-play data dating back to 1999"
+  - name: play_by_play
+    description: "Analytics-ready play-by-play big table"
+  
