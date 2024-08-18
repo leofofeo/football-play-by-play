@@ -1,0 +1,27 @@
+create or replace view marts.fact_plays as
+ SELECT
+        game_id,
+        play_id,
+        quarter,
+        down,
+        yards_to_go,
+        yard_line_from_endzone,
+        possession_team,
+        defending_team,
+        play_type,
+        yards_gained,
+        expected_points,
+        expected_points_added,
+        possession_team_win_probability,
+        home_team_win_probability,
+        away_team_win_probability,
+        success,
+        play_description,
+        rush_attempt,
+        pass_attempt,
+        sack,
+        touchdown,
+        interception,
+        penalty,
+        fumble
+FROM staging.src_historical_play_by_play;

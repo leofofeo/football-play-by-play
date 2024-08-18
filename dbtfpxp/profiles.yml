@@ -2,7 +2,7 @@ dbtfpxp:
   outputs:
     dev:
       account: "{{ env_var('dbt_snowflake_account') }}"
-      database: "{{ env_var('dbt_db') }}"
+      database: football_play_by_play
       password: "{{ env_var('dbt_password') }}"
       role: "{{ env_var('dbt_role') }}"
       schema: raw

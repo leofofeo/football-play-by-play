@@ -1,5 +1,5 @@
 with src_historical_play_by_play as (
-    select * from football_play_by_play.raw."PLAY-BY-PLAY-CSV-STREAM"
+    select * from "football_play_by_play"."raw"."PLAY-BY-PLAY-CSV-STREAM"
 )
 select 
     concat(game_id, '-', drive, '-', play_id) as historical_play_id,
@@ -186,7 +186,7 @@ select
     receiving_yards,
     rusher_player_id,
     rusher_player_name,
-    rushing_yards,
+    coalesce(try_to_number(rushing_yards, 0), 0) AS rushing_yards
     lateral_receiver_player_id,
     lateral_receiver_player_name,
     lateral_receiving_yards,
@@ -380,5 +380,4 @@ select
     xyac_fd,
     xpass,
     pass_oe
-
 from src_historical_play_by_play

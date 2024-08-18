@@ -6,10 +6,15 @@ sources:
     schema: raw
     tables:
       - name: PLAY-BY-PLAY-CSV-STREAM
+      - name: HISTORICAL-ROSTER-DATA-CSV-STREAM
 
-models:
-  - name: src_historical_play_by_play
-    description: "A table containing historical play-by-play data dating back to 1999"
-  - name: play_by_play
-    description: "Analytics-ready play-by-play big table"
+# models:
+#   - name: src_historical_play_by_play
+#     description: "A table containing historical play-by-play data dating back to 1999"
+  # - name: play_by_play
+  #   description: "Analytics-ready play-by-play big table"
+  # - name: src_historical_roster_data
+  #   description: "A table containing historical roster data dating back to 1999"
+  # - name: dim_teams
+  #   description: "A table containing team information"
   
