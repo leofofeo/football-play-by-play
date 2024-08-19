@@ -4,8 +4,8 @@
 
 This project aims to:
 - take existing play-by-play nfl data and create an ELT pipeline that automatically ingests existing and new csv files
-- uses an NFL API to create dimensional tables about teams and players
-- transforms the raw data into modeled data that can be consumed for analytics via a tool like Preset, more easily accessed for data analysis via SQL and Python
+- use an NFL API to create dimensional tables about teams and players
+- transform the raw data into modeled data that can be consumed for analytics via a tool like Preset, more easily accessed for data analysis via SQL and Python
 
 
 ## Consumers
